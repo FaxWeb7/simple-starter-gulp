@@ -1,0 +1,39 @@
+{
+  "name": "learn-gulp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Artemka0-7/Learn-Gulp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Artemka0-7/Learn-Gulp/issues"
+  },
+  "homepage": "https://github.com/Artemka0-7/Learn-Gulp#readme",
+  "devDependencies": {
+    "browser-sync": "^2.27.10",
+    "del": "^6.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-fonter": "^0.3.0",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-ttf2woff": "^1.1.1",
+    "gulp-ttf2woff2": "^4.0.1",
+    "gulp-uglify-es": "^3.0.0",
+    "gulp-webp": "^4.0.1",
+    "gulp-webp-html": "^1.0.2",
+    "gulp-webpcss": "^1.1.1",
+    "sass": "^1.52.0"
+  }
+}

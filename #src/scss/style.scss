@@ -1,0 +1,26 @@
+@import 'fonts';
+
+@mixin font($font-name, $file-name, $weight, $style){
+  @font-face {
+    font-family: $font-name;
+    font-display: swap;
+    src: url("../fonts/#{$file-name}.woff") format("woff"), url("../fonts/#{$file-name}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+
+$color: blue;
+$color2: black;
+
+body{
+  font-size: 45px;
+
+  @media screen and (max-width: 920px){
+    background-color: $color2;
+  }
+}
+
+
+
+
