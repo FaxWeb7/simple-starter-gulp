@@ -1,6 +1,3 @@
-@import '_fonts';
-@import '_vars';
-
 @mixin font($font-name, $file-name, $weight, $style){
   @font-face {
     font-family: $font-name;
