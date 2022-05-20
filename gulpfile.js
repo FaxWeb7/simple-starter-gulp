@@ -18,45 +18,44 @@ const { src, dest } = require('gulp'),
 
 const fs = require('fs');
 
-const projectFolder = "dist";  //папка в которую будет выгружаться проект
-const sourceFolder = "#src"; //папка с исходником
+const projectFolder = "dist"; 
+const sourceFolder = "src";
 
 const path = { 
-  build: { // то место куда будут выгружаться готовые файлы
+  build: { 
     html: `${projectFolder}/`,
     css: `${projectFolder}/css/`,
     js: `${projectFolder}/js/`,
     img: `${projectFolder}/img/`,
     fonts: `${projectFolder}/fonts/`
   },
-  src: { // папка с проектом. указанные тут файлы - это файлы, которые потом будут сужаться
-    html: [`${sourceFolder}/*html`, `!${sourceFolder}/_*html`],
+  src: {
+    html: [`${sourceFolder}/*.html`],
     css: `${sourceFolder}/scss/style.scss`,
     js: `${sourceFolder}/js/script.js`,
-    img: `${sourceFolder}/img/**/*.{jpg,png,svg,gif,ico,webp}`, //gulp будет компилировать все файлы с указанными расширениями во всех подпапках папки img
+    img: `${sourceFolder}/img/**/*.{jpg,png,svg,gif,ico,webp}`,
     fonts: `${sourceFolder}/fonts/*.ttf`
   },
-  watch: { // указанные файлы будут сразу компилироваться
-    html: `${sourceFolder}/**/*.html`, //все файлы html в любой из папок src будут постоянно прослущиваться 
+  watch: { 
+    html: `${sourceFolder}/views/**/*.html`,
     css: `${sourceFolder}/scss/**/*.scss`,
     js: `${sourceFolder}/js/**/*.js`,
     img: `${sourceFolder}/img/**/*.{jpg,png,svg,gif,ico,webp}`
   },
-  // отвечает за удаление указанной папке при каждом запуске gulp
   clean: `./${projectFolder}/`
 }
 
 function browserSync(params) {
   browsersync.init({
     server: {
-      baseDir: `./${projectFolder}/`  //базовая папка. та же что и в clean
+      baseDir: `./${projectFolder}/`  
     },
     port: 3000,
     notify: false
   })
 }
 
-function html() { //функция определяющая что html файлы с папки src будут перенаправляться в папку gulp
+function html() {
   return src(path.src.html)
     .pipe(fileinclude())
     .pipe(webphtml())
@@ -143,9 +142,9 @@ function fonts () {
 }
 
 function fontsStyle(params) {
-  let file_content = fs.readFileSync(sourceFolder + '/scss/fonts.scss');
+  let file_content = fs.readFileSync(sourceFolder + '/scss/_fonts.scss');
   if (file_content == '') {
-    fs.writeFile(sourceFolder + '/scss/fonts.scss', '', cb);
+    fs.writeFile(sourceFolder + '/scss/_fonts.scss', '', cb);
     return fs.readdir(path.build.fonts, function (err, items) {
       if (items) {
       let c_fontname;
@@ -153,7 +152,7 @@ function fontsStyle(params) {
           let fontname = items[i].split('.');
           fontname = fontname[0];
           if (c_fontname != fontname) {
-            fs.appendFile(sourceFolder + '/scss/fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb);
+            fs.appendFile(sourceFolder + '/scss/_fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb);
           }
           c_fontname = fontname;
         }
@@ -164,9 +163,6 @@ function fontsStyle(params) {
   
   function cb() { }
 
-function cb() {
-
-}
 
 function watchFiles(params) {
   gulp.watch([path.watch.html], html)
@@ -179,7 +175,7 @@ function clean(params) {
   return del(path.clean);
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts), fontsStyle); //включение функций
+const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts), fontsStyle); 
 const watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.fontsStyle = fontsStyle;
