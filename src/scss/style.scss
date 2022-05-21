@@ -1,12 +1,10 @@
-@import '_footer';
-@import '_global';
-@import '_header';
-@import '_fonts';
-@import '_mixins';
-@import '_vars';
+// ! Global imports
+@import './bootstrap/bootstrap.scss';
+@import '_global.scss';
 
-
-
+// ! Sections or pages
+@import './header';
+// @import './footer';
 
 
 

@@ -35,5 +35,8 @@
     "gulp-webp-html": "^1.0.2",
     "gulp-webpcss": "^1.1.1",
     "sass": "^1.52.0"
+  },
+  "dependencies": {
+    "gulp-htmlmin": "^5.0.1"
   }
 }

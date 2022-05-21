@@ -1,0 +1,57 @@
+@import '_vars.scss';
+@import '_fonts.scss';
+@import '_mixins.scss';
+
+//* NavBar
+
+header{
+  font-size: 17px;
+  .modal{display: none;}
+  .nav{
+    background-color: rgb(0, 255, 195);
+    width: 100%;
+    a{
+      color: black;
+      &:hover:not(.btn){
+        color: white;
+        transform: scale(1.1);
+        transition: all 0.6s ease;
+      }
+    }
+  }
+  .container{
+    min-width: 100%;
+    padding: 14px 10px;
+  }
+  .row{
+    width: 100%;
+  }
+  .ar-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo-nav{
+    padding-left: 1.3em;
+    gap: 2.2em;
+  }
+  ul{
+    gap: 1.6em;
+  }
+  @media (max-width: $breakpoint768){
+    font-size: 14px;
+    .container{
+      padding: 8px 6px;
+    }
+    .sign{
+      display: none;
+    }
+    .modal{
+      display: block;
+    }
+  }
+}
+
+
+
+// * Header

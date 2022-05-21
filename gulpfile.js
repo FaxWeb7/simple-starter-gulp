@@ -14,11 +14,14 @@ const { src, dest } = require('gulp'),
   webphtml = require('gulp-webp-html'),
   ttf2woff = require('gulp-ttf2woff'),
   ttf2woff2 = require('gulp-ttf2woff2'),
-  fonter = require('gulp-fonter');
+  fonter = require('gulp-fonter'),
+  htmlmin = require('gulp-htmlmin');
+  
+
 
 const fs = require('fs');
 
-const projectFolder = "dist"; 
+const projectFolder = "build"; 
 const sourceFolder = "src";
 
 const path = { 
@@ -30,15 +33,16 @@ const path = {
     fonts: `${projectFolder}/fonts/`
   },
   src: {
-    html: [`${sourceFolder}/*.html`],
+    html: [`${sourceFolder}/*.html`, `${sourceFolder}/views/pages/*.html`],
     css: `${sourceFolder}/scss/style.scss`,
     js: `${sourceFolder}/js/script.js`,
     img: `${sourceFolder}/img/**/*.{jpg,png,svg,gif,ico,webp}`,
     fonts: `${sourceFolder}/fonts/*.ttf`
   },
   watch: { 
+    html: `${sourceFolder}/*.html`,
     html: `${sourceFolder}/views/**/*.html`,
-    css: `${sourceFolder}/scss/**/*.scss`,
+    css: `${sourceFolder}/scss/*.scss`,
     js: `${sourceFolder}/js/**/*.js`,
     img: `${sourceFolder}/img/**/*.{jpg,png,svg,gif,ico,webp}`
   },
@@ -48,7 +52,7 @@ const path = {
 function browserSync(params) {
   browsersync.init({
     server: {
-      baseDir: `./${projectFolder}/`  
+      baseDir: `./${projectFolder}`  
     },
     port: 3000,
     notify: false
@@ -59,6 +63,7 @@ function html() {
   return src(path.src.html)
     .pipe(fileinclude())
     .pipe(webphtml())
+    .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(dest(path.build.html))
     .pipe(browsersync.stream())
 }
@@ -77,7 +82,6 @@ function css() {
         cascade: true
       })
     )
-    .pipe(dest(path.build.css))
     .pipe(clean_css())
     .pipe(
       rename({
@@ -91,7 +95,6 @@ function css() {
 function js() { 
   return src(path.src.js)
     .pipe(fileinclude())
-    .pipe(dest(path.build.js))
     .pipe(uglify())
     .pipe(
       rename({

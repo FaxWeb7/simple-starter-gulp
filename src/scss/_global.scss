@@ -1,0 +1,49 @@
+@import '_vars.scss';
+@import '_fonts.scss';
+@import '_mixins.scss';
+
+//* Container
+.am-container {
+  width: 100%;
+  max-width: ($containerWidth + $containerPadding) + px;
+  margin: 0 auto;
+  padding: 0 $containerSidePadding + px;
+
+  @media (max-width: $breakpoint1450){
+    max-width: 1400px;
+  }
+
+  @media (max-width: $breakpoint992){
+    max-width: 970px;
+  }
+
+  @media (max-width: $breakpoint768){
+    max-width: 740px;
+  }
+
+  @media (max-width: $breakpoint480){
+    max-width: none;
+  }
+}
+
+//* Body Locked
+body{
+  // font-family: $fontMain;
+  &.locked{
+    overflow: hidden;
+  }
+}
+
+//? Animations
+
+//* Fade
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+//? Else
+a{
+  text-decoration: none;
+  color: white;
+}
