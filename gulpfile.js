@@ -34,8 +34,8 @@ const path = {
   },
   src: {
     html: [`${sourceFolder}/*.html`, `${sourceFolder}/views/pages/*.html`],
-    css: `${sourceFolder}/scss/style.scss`,
-    js: `${sourceFolder}/js/script.js`,
+    css: [`${sourceFolder}/scss/*.scss`, `${sourceFolder}/scss/*.css`, `!${sourceFolder}/scss/_*.scss`],
+    js: `${sourceFolder}/js/*.js`,
     img: `${sourceFolder}/img/**/*.{jpg,png,svg,gif,ico,webp}`,
     fonts: `${sourceFolder}/fonts/*.ttf`
   },

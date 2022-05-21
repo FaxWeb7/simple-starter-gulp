@@ -6,7 +6,7 @@
 
 header{
   font-size: 17px;
-  .modal{display: none;}
+  .am-modal{display: none;}
   .nav{
     background-color: rgb(0, 255, 195);
     width: 100%;
@@ -26,6 +26,10 @@ header{
   .row{
     width: 100%;
   }
+  .am-sign{
+    display: flex;
+    gap: 2em;
+  }
   .ar-nav{
     display: flex;
     align-items: center;
@@ -38,20 +42,51 @@ header{
   ul{
     gap: 1.6em;
   }
+  #exampleModal{
+    .modal-content{
+    background-color: rgb(40, 40, 40);
+    }
+    .modal-header{
+      border-bottom: none;
+    }
+    .modal-footer{
+      display: grid;
+      grid-gap: 1.6em;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
   @media (max-width: $breakpoint768){
-    font-size: 14px;
+    font-size:14px;
     .container{
       padding: 8px 6px;
     }
-    .sign{
-      display: none;
+    ul{
+      gap: 1.3em;
     }
-    .modal{
+    .am-sign{
+      gap: 1.1em;
+      flex-wrap: nowrap;
+      a{
+        padding: 0.3em 0.4em;
+        font-size: 14px;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint600){
+    font-size: 14px;
+    .am-modal{
       display: block;
+    }
+    .modal-backdrop.show{opacity: 1;}
+    .container{
+      padding: 8px 6px;
+    }
+    .am-sign{
+      display: none;
     }
   }
 }
-
-
 
 // * Header

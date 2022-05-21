@@ -15,9 +15,33 @@
             </ul>
           </div>
         </div>
-        <div class="sign">
-          <a href="/" class="btn btn-secondary px-4">Sign in</a>
-          <a href="/" class="btn btn-secondary px-lg-4">bebra</a>
+        <div class="am-sign">
+          <a href="/" class="btn btn-secondary px-4 text-nowrap">Sign in</a>
+          <a href="/" class="btn btn-secondary px-lg-4 text-nowrap">Start free trial</a>
+        </div>
+        <div class="am-modal">
+          <button type="button" class="btn btn-secondary px-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+          </button>
+
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog modal-fullscreen">
+              <div class="modal-content">
+                <div class="modal-header bg-red">
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary">Sign in</button>
+                  <button type="button" class="btn btn-primary">Start free trial</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

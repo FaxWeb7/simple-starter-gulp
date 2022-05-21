@@ -21,6 +21,10 @@
     max-width: 740px;
   }
 
+  @media (max-width: $breakpoint600){
+    max-width: none;
+  }
+
   @media (max-width: $breakpoint480){
     max-width: none;
   }
