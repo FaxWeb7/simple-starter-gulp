@@ -4,8 +4,9 @@
 
 //* NavBar
 
-header{
+nav{
   font-size: 17px;
+  height: 4em;
   .am-modal{display: none;}
   .nav{
     background-color: rgb(0, 255, 195);
@@ -30,6 +31,10 @@ header{
     display: flex;
     gap: 2em;
   }
+  .navigation{
+    display: flex;
+    align-items: center;
+  }
   .ar-nav{
     display: flex;
     align-items: center;
@@ -42,6 +47,12 @@ header{
   ul{
     gap: 1.6em;
   }
+  .modal-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+  }
   #exampleModal{
     .modal-content{
     background-color: rgb(40, 40, 40);
@@ -53,6 +64,9 @@ header{
       display: grid;
       grid-gap: 1.6em;
       grid-template-columns: 1fr 1fr;
+      button{
+        border-radius: 5px;
+      }
     }
   }
 
@@ -74,8 +88,9 @@ header{
     }
   }
 
-  @media (max-width: $breakpoint600){
+  @media (max-width: $burgerBreakpoint){
     font-size: 14px;
+    .navigation{display: none;}
     .am-modal{
       display: block;
     }
@@ -90,3 +105,4 @@ header{
 }
 
 // * Header
+

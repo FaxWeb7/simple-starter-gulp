@@ -33,6 +33,7 @@
 //* Body Locked
 body{
   // font-family: $fontMain;
+  background-color: rgb(40, 40, 40);
   &.locked{
     overflow: hidden;
   }

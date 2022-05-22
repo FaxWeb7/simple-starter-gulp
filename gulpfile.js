@@ -40,9 +40,10 @@ const path = {
     fonts: `${sourceFolder}/fonts/*.ttf`
   },
   watch: { 
-    html: `${sourceFolder}/*.html`,
-    html: `${sourceFolder}/views/**/*.html`,
+    html: `${sourceFolder}/*.html`, 
+    html2: `${sourceFolder}/views/**/*.html`,
     css: `${sourceFolder}/scss/*.scss`,
+    css2: `${sourceFolder}/scss/*.css`,
     js: `${sourceFolder}/js/**/*.js`,
     img: `${sourceFolder}/img/**/*.{jpg,png,svg,gif,ico,webp}`
   },
@@ -169,7 +170,9 @@ function fontsStyle(params) {
 
 function watchFiles(params) {
   gulp.watch([path.watch.html], html)
+  gulp.watch([path.watch.html2], html)
   gulp.watch([path.watch.css], css)
+  gulp.watch([path.watch.css2], css)
   gulp.watch([path.watch.js], js)
   gulp.watch([path.watch.img], images)
 }
