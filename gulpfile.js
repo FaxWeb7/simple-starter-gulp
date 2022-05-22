@@ -108,65 +108,23 @@ function js() {
 
 function images() { 
   return src(path.src.img)
-    .pipe(
-      webp({
-        quality: 70
-      })
-    )
-    .pipe(dest(path.build.img))
     .pipe(src(path.src.img))
     .pipe(
       imagemin({
         progressive: true,
         svgoPlugins: [{ removeViewBox: false }],
         interlaced: true,
-        optimizationLevel: 3
+        optimizationLevel: 2
+      })
+    )
+    .pipe(
+      webp({
+        quality: 80
       })
     )
     .pipe(dest(path.build.img))
     .pipe(browsersync.stream())
 }
-
-gulp.task('otf2ttf', function () {
-  return src([sourceFolder + '/fonts/*.otf'])
-    .pipe(fonter({
-      formats: ['ttf']
-    }))
-    .pipe(dest(sourceFolder + '/fonts/'))
-})
-
-function fonts () {
-  src(path.src.fonts)
-    .pipe(ttf2woff())
-    .pipe(dest(path.build.fonts));
-
-  return src(path.src.fonts)
-    .pipe(ttf2woff2())
-    .pipe(dest(path.build.fonts));
-}
-
-function fontsStyle(params) {
-  let file_content = fs.readFileSync(sourceFolder + '/scss/_fonts.scss');
-  if (file_content == '') {
-    fs.writeFile(sourceFolder + '/scss/_fonts.scss', '', cb);
-    return fs.readdir(path.build.fonts, function (err, items) {
-      if (items) {
-      let c_fontname;
-        for (var i = 0; i < items.length; i++) {
-          let fontname = items[i].split('.');
-          fontname = fontname[0];
-          if (c_fontname != fontname) {
-            fs.appendFile(sourceFolder + '/scss/_fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb);
-          }
-          c_fontname = fontname;
-        }
-      }
-    })
-  }
-}
-  
-  function cb() { }
-
 
 function watchFiles(params) {
   gulp.watch([path.watch.html], html)
@@ -181,11 +139,10 @@ function clean(params) {
   return del(path.clean);
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts), fontsStyle); 
+const build = gulp.series(clean, gulp.parallel(html, css, js, images)); 
 const watch = gulp.parallel(build, watchFiles, browserSync);
 
-exports.fontsStyle = fontsStyle;
-exports.fonts = fonts;
+
 exports.js = js;
 exports.images = images;
 exports.css = css;

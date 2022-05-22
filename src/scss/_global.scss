@@ -1,40 +1,17 @@
-@import '_reset.scss';
 @import '_vars.scss';
-@import '_fonts.scss';
-@import '_mixins.scss';
 
 //* Container
-.am-container {
+.container {
   width: 100%;
-  max-width: ($containerWidth + $containerPadding) + px;
+  max-width: ($containerWidth + $containerSidePadding) + px;
   margin: 0 auto;
   padding: 0 $containerSidePadding + px;
-
-  @media (max-width: $breakpoint1450){
-    max-width: 1400px;
-  }
-
-  @media (max-width: $breakpoint992){
-    max-width: 970px;
-  }
-
-  @media (max-width: $breakpoint768){
-    max-width: 740px;
-  }
-
-  @media (max-width: $breakpoint576){
-    max-width: none;
-  }
-
-  @media (max-width: $breakpoint480){
-    max-width: none;
-  }
 }
 
-//* Body Locked
+//* Body and ...
 body{
   // font-family: $fontMain;
-  background-color: rgb(40, 40, 40);
+  // background-color: $bodyBackground;
   &.locked{
     overflow: hidden;
   }
