@@ -1,3 +1,4 @@
+@import '_reset.scss';
 @import '_vars.scss';
 @import '_fonts.scss';
 @import '_mixins.scss';
@@ -45,10 +46,4 @@ body{
 @keyframes fade {
   from {opacity: 0;}
   to {opacity: 1;}
-}
-
-//? Else
-a{
-  text-decoration: none;
-  color: white;
 }
