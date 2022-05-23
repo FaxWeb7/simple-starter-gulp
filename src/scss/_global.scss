@@ -21,23 +21,17 @@ html{
   width: 100%;
   max-width: $containerWidth + px;
   margin: 0 auto;
-  padding: 0 $containerSidePadding + px;
+  padding: $containerYPadding + px $containerXPadding + px;
 }
 
 //* Body and ...
 body{
+  @extend %font;
   height: 100%;
-  // font-family: $fontMain;
-  // background-color: $bodyBackground;
+  background-color: $bodyBackground;
   &.locked{
     overflow: hidden;
   }
 }
 
-//? Animations
 
-//* Fade
-@keyframes fade {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
