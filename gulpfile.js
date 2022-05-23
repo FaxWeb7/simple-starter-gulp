@@ -35,7 +35,7 @@ const path = {
   src: {
     html: [`${sourceFolder}/*.html`, `${sourceFolder}/views/pages/*.html`],
     css: [`${sourceFolder}/scss/*.scss`, `${sourceFolder}/scss/*.css`, `!${sourceFolder}/scss/_*.scss`],
-    js: [`${sourceFolder}/js/*.js`, `node_modules/jquery/dist/jquery.js`, `node_modules/slick-carousel/slick/slick.js`],
+    js: [`${sourceFolder}/js/*.js`, `node_modules/jquery/dist/jquery.js`/* , `node_modules/slick-carousel/slick/slick.js`*/],
     img: `${sourceFolder}/img/**/*.{jpg,png,svg,gif,ico,webp}`,
     fonts: `${sourceFolder}/fonts/*.ttf`
   },
