@@ -1,15 +1,32 @@
 @import '_vars.scss';
 
-//* Container
+html{
+  height: 100%;
+}
+
+//* Sections and container 
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.main{
+  flex: 1 0 auto;
+}
+.footer{
+  flex: 0 0 auto;
+}
+
 .container {
   width: 100%;
-  max-width: ($containerWidth + $containerSidePadding) + px;
+  max-width: $containerWidth + px;
   margin: 0 auto;
   padding: 0 $containerSidePadding + px;
 }
 
 //* Body and ...
 body{
+  height: 100%;
   // font-family: $fontMain;
   // background-color: $bodyBackground;
   &.locked{
