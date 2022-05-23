@@ -29,6 +29,8 @@ body{
   @extend %font;
   height: 100%;
   background-color: $bodyBackground;
+  overflow-x: hidden;
+  min-width: 320px;
   &.locked{
     overflow: hidden;
   }
