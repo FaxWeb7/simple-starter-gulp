@@ -1,11 +1,10 @@
 // ! Global imports
 @import '_reset.scss';
+@import '_libs.scss';
 @import '_global.scss';
 
 // ! Sections or pages
 @import './header';
+@import './sections';
 @import './footer';
-
-
-
-
+@import './media';

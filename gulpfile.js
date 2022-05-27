@@ -9,11 +9,8 @@ const { src, dest } = require('gulp'),
   clean_css = require('gulp-clean-css'),
   rename = require('gulp-rename'),
   uglify = require('gulp-uglify-es').default,
-  imagemin = require('gulp-imagemin'),
   webp = require('gulp-webp'),
   webphtml = require('gulp-webp-html'),
-  ttf2woff = require('gulp-ttf2woff'),
-  ttf2woff2 = require('gulp-ttf2woff2'),
   fonter = require('gulp-fonter'),
   htmlmin = require('gulp-htmlmin');
   
@@ -35,7 +32,7 @@ const path = {
   src: {
     html: [`${sourceFolder}/*.html`, `${sourceFolder}/views/pages/*.html`],
     css: [`${sourceFolder}/scss/*.scss`, `${sourceFolder}/scss/*.css`, `!${sourceFolder}/scss/_*.scss`],
-    js: [`${sourceFolder}/js/*.js`/*, `node_modules/jquery/dist/jquery.js`/* , `node_modules/slick-carousel/slick/slick.js`*/],
+    js: `${sourceFolder}/js/*.js`,
     img: `${sourceFolder}/img/**/*.{jpg,png,svg,gif,ico,webp}`,
     fonts: `${sourceFolder}/fonts/*.ttf`
   },
@@ -110,16 +107,8 @@ function images() {
   return src(path.src.img)
     .pipe(src(path.src.img))
     .pipe(
-      imagemin({
-        progressive: true,
-        svgoPlugins: [{ removeViewBox: false }],
-        interlaced: true,
-        optimizationLevel: 2
-      })
-    )
-    .pipe(
       webp({
-        quality: 80
+        quality: 99
       })
     )
     .pipe(dest(path.build.img))
